@@ -21,7 +21,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Sarabun', sans-serif; /* เปลี่ยนเป็นฟอนต์ไทยอ่านง่าย */
+            font-family: 'Sarabun', sans-serif;
         }
 
         body {
@@ -51,14 +51,14 @@
             padding-left: 330px; /* เว้นพื้นที่หลบแถบซ้ายที่โดน fixed ไว้ */
         }
 
-        /* 🔳 รูปโปรไฟล์กรอบสี่เหลี่ยมตามบรีฟ (ซ้ายบน) */
+        /* 🔳 รูปโปรไฟล์กรอบสี่เหลี่ยม (ซ้ายบน) */
         .profile-box {
             width: 100%;
             max-width: 230px;
             aspect-ratio: 1 / 1;
             background-color: #ffffff;
             border: 3px solid var(--avocado-green);
-            border-radius: 4px; /* ทรงสี่เหลี่ยมคมชัด มินิมอล */
+            border-radius: 4px;
             overflow: hidden;
             margin-bottom: 35px;
             box-shadow: 0 8px 20px rgba(85, 124, 36, 0.1);
@@ -88,7 +88,6 @@
             border-left: 3px solid transparent;
         }
 
-        /* สถานะเมนูที่เปิดอยู่ หรือ ตอนชี้ */
         .nav-menu a.active, .nav-menu a:hover {
             background-color: var(--avocado-green);
             color: #ffffff;
@@ -96,7 +95,7 @@
             padding-left: 22px;
         }
 
-        /* 📄 การ์ดและเนื้อหาฝั่งขวา */
+        /* 📄 การ์ดต้อนรับด้านบนสุดฝั่งขวา */
         .welcome-section {
             background: #ffffff;
             border: 1px solid rgba(85, 124, 36, 0.08);
@@ -104,6 +103,7 @@
             padding: 40px;
             box-shadow: 0 10px 30px rgba(85, 124, 36, 0.03);
             max-width: 800px;
+            margin-bottom: 30px;
         }
 
         .welcome-section h1 {
@@ -126,31 +126,45 @@
             font-size: 1.05rem;
             line-height: 1.8;
             color: var(--text-dark);
-            margin-bottom: 30px;
         }
 
-        /* ปุ่มดีไซน์เขียวอะโวคาโด */
-        .btn-explore {
-            display: inline-block;
-            background-color: var(--avocado-green);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 28px;
-            font-weight: 500;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(85, 124, 36, 0.2);
+        /* 📦 โซนกล่องข้อความอธิบายเพิ่มเติม (แต่งใหม่ให้เข้าธีมเขียวอะโวคาโด) */
+        .info-card-container {
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 20px rgba(85, 124, 36, 0.02);
+            border: 1px solid rgba(85, 124, 36, 0.05);
+            border-left: 5px solid var(--avocado-green); /* แถบสีเขียวหนาด้านซ้ายตามแบบประยุกต์ */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateX(5px); /* เลื่อนขวานิดๆ ตอนเมาส์ชี้ดูมีลูกเล่น */
+            box-shadow: 0 6px 25px rgba(85, 124, 36, 0.06);
+        }
+
+        .info-card h3 {
+            color: var(--avocado-green);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card p {
             font-size: 1rem;
-        }
-
-        .btn-explore:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(85, 124, 36, 0.3);
-            background-color: #44631c;
-        }
-
-        .btn-explore:active {
-            transform: scale(0.97);
+            line-height: 1.7;
+            color: var(--text-dark);
         }
     </style>
 </head>
@@ -158,13 +172,10 @@
 
     <!-- 🟢 ส่วนที่ 1: แถบ Sidebar ฝั่งซ้าย -->
     <div class="sidebar">
-        <!-- รูปโปรไฟล์เหลี่ยมมุมมินิมอล (ซ้ายบน) -->
         <div class="profile-box">
-            <!-- ⚠️ เปลี่ยนชื่อรูปภาพให้ตรงกับของนพอนันต์ตรง src ได้เลยนะครับ -->
             <img src="images/profile.jpg" alt="รูปโปรไฟล์นพอนันต์" onerror="this.src='https://via.placeholder.com/230/557c24/ffffff?text=Nopanan'">
         </div>
 
-        <!-- แทบล็อกเมนูอยู่ใต้รูปโปรไฟล์ (ภาษาไทย) -->
         <nav class="nav-menu">
             <a href="index.html" class="active">หน้าแรก</a>
             <a href="personal.html">ประวัติส่วนตัว</a>
@@ -174,14 +185,44 @@
         </nav>
     </div>
 
-    <!-- ⚪ ส่วนที่ 2: เนื้อหาฝั่งขวา (ภาษาไทย) -->
+    <!-- ⚪ ส่วนที่ 2: เนื้อหาฝั่งขวา -->
     <div class="main-content">
+        <!-- การ์ดต้อนรับหลัก -->
         <div class="welcome-section">
             <h1>ยินดีต้อนรับสู่พื้นที่ของฉัน</h1>
             <subtitle>นพอนันต์ ทิจันทร์</subtitle>
-            
+            <p>
+                สวัสดีครับผม! ยินดีต้อนรับเข้าสู่เว็บไซต์พอร์ตโฟลิโอส่วนตัวของผม พื้นที่นี้เป็นสถานที่รวบรวมผลงาน ความคิดสร้างสรรค์ ทักษะความสามารถ และโปรเจกต์ต่าง ๆ ที่ผมตั้งใจทำครับ
+            </p>
+        </div>
 
-            <a href="about.html" class="btn-explore">ทำความรู้จักฉันเพิ่มขึ้น</a>
+        <!-- 📦 กล่องข้อความอธิบายเพิ่มเติมแบบแต่งใหม่สไตล์อะโวคาโดมินิมอล -->
+        <div class="info-card-container">
+            
+            <!-- กล่องที่ 1 -->
+            <div class="info-card">
+                <h3>🌿 ยินดีต้อนรับ</h3>
+                <p>
+                    เว็บไซต์พอร์ตโฟลิโอนี้จัดทำขึ้นเพื่อนำเสนอข้อมูลส่วนตัว ประวัติการศึกษา คลังผลงานสร้างสรรค์ ทักษะความสามารถ และกิจกรรมต่าง ๆ ของผม เพื่อใช้เป็นเครื่องมือในการแนะนำตัวเองและประกอบการศึกษาต่อในอนาคตครับ
+                </p>
+            </div>
+
+            <!-- กล่องที่ 2 -->
+            <div class="info-card">
+                <h3>🔍 เกี่ยวกับฉัน</h3>
+                <p>
+                
+                </p>
+            </div>
+
+            <!-- กล่องที่ 3 -->
+            <div class="info-card">
+                <h3>🎯 เป้าหมาย</h3>
+                <p>
+                    มุ่งมั่นที่จะนำความรู้ ทักษะด้านการคิดวิเคราะห์ และการออกแบบมาประยุกต์ใช้เพื่อการศึกษาต่อในระดับอุดมศึกษา และพัฒนาตนเองอย่างต่อเนื่องเพื่อเตรียมความพร้อมสู่เส้นทางการทำงานและการประกอบอาชีพในอนาคตที่ตั้งใจไว้
+                </p>
+            </div>
+
         </div>
     </div>
 
