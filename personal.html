@@ -9,21 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* สไตล์เฉพาะตารางข้อมูลในหน้าเกี่ยวกับฉัน */
         .personal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            margin-top: 30px;
         }
 
         .profile-detail-card {
             background: #ffffff;
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 4px 20px rgba(85, 124, 36, 0.02);
-            border: 1px solid rgba(85, 124, 36, 0.05);
-            border-top: 4px solid var(--avocado-green);
+            box-shadow: 0 4px 20px rgba(74, 91, 61, 0.02);
+            border: 1px solid rgba(74, 91, 61, 0.05);
+            border-top: 4px solid var(--forest-green);
         }
 
         .info-list {
@@ -35,7 +33,7 @@
             margin-bottom: 15px;
             font-size: 1rem;
             line-height: 1.6;
-            border-bottom: 1px dashed rgba(85, 124, 36, 0.1);
+            border-bottom: 1px dashed rgba(74, 91, 61, 0.1);
             padding-bottom: 8px;
         }
 
@@ -47,7 +45,7 @@
 
         .info-label {
             font-weight: 600;
-            color: var(--avocado-green);
+            color: var(--forest-green);
             width: 120px;
             flex-shrink: 0;
         }
@@ -59,12 +57,9 @@
 </head>
 <body>
 
+    <!-- 🎛️ ระบบป๊อปอัปเมนู -->
     <input type="checkbox" id="menu-checkbox">
-    
-    <label for="menu-checkbox" class="menu-toggle-btn">
-        ☰
-    </label>
-
+    <label for="menu-checkbox" class="menu-toggle-btn">☰</label>
     <label for="menu-checkbox" class="menu-overlay"></label>
 
     <div class="sidebar-popup">
@@ -77,50 +72,31 @@
         </nav>
     </div>
 
+    <!-- ⚪ เนื้อหาหน้าเกี่ยวกับฉันแบบขยายเต็มจอ -->
     <div class="main-content-full">
         <div class="welcome-section">
             <h1>ข้อมูลส่วนตัว</h1>
             <subtitle>Personal Information</subtitle>
-            <p>
-                ยินดีต้อนรับเข้าสู่หน้ารายละเอียดส่วนตัวของผมครับ ด้านล่างนี้คือข้อมูลเบื้องต้นเกี่ยวกับตัวตน วันเกิด และแนวคิดในการดำเนินชีวิตของผมครับ
-            </p>
+            <p>ส่วนนี้เป็นข้อมูลรายละเอียดส่วนตัว ประวัติ และประวัติโดยย่อของผมครับ</p>
         </div>
 
         <div class="personal-grid">
             <div class="profile-detail-card">
-                <h3 style="color: var(--avocado-green); margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;">👤 ข้อมูลพื้นฐาน</h3>
+                <h3 style="color: var(--forest-green); margin-bottom: 20px; font-weight: 700;">👤 ข้อมูลพื้นฐาน</h3>
                 <ul class="info-list">
-                    <li>
-                        <span class="info-label">ชื่อ-นามสกุล</span>
-                        <span class="info-value">นาย นพอนันต์ ทิจันทร์</span>
-                    </li>
-                    <li>
-                        <span class="info-label">ชื่อเล่น</span>
-                        <span class="info-value">พิง</span>
-                    </li>
-                    <li>
-                        <span class="info-label">วันเกิด</span>
-                        <span class="info-value">25 พฤษภาคม 2550</span>
-                    </li>
-                    <li>
-                        <span class="info-label">อายุ</span>
-                        <span class="info-value">19 ปี</span>
-                    </li>
-                    <li>
-                        <span class="info-label">เชื้อชาติ</span>
-                        <span class="info-value">ไทย</span>
-                    </li>
-                    <li>
-                        <span class="info-label">ศาสนา</span>
-                        <span class="info-value">พุทธ</span>
-                    </li>
+                    <li><span class="info-label">ชื่อ-นามสกุล</span><span class="info-value">นาย นพอนันต์ ทิจันทร์</span></li>
+                    <li><span class="info-label">ชื่อเล่น</span><span class="info-value">พิง</span></li>
+                    <li><span class="info-label">วันเกิด</span><span class="info-value">25 พฤษภาคม 2550</span></li>
+                    <li><span class="info-label">อายุ</span><span class="info-value">19 ปี</span></li>
+                    <li><span class="info-label">เชื้อชาติ</span><span class="info-value">ไทย</span></li>
+                    <li><span class="info-label">ศาสนา</span><span class="info-value">พุทธ</span></li>
                 </ul>
             </div>
 
-            <div class="profile-detail-card" style="border-top-color: var(--text-muted);">
-                <h3 style="color: var(--text-muted); margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;">💡 แนวคิดในการทำงาน</h3>
-                <p style="line-height: 1.8; color: var(--text-dark); font-size: 0.95rem;">
-                    "ความเรียบง่ายคือความประณีตขั้นสูงสุด" ผมมุ่งมั่นที่จะนำสไตล์มินิมอลธรรมชาติมาผสานเข้ากับโครงสร้างการออกแบบที่ชัดเจน เพื่อสร้างสรรค์ผลงานที่ทั้งดูดีและตอบโจทย์การใช้งานอย่างมีประสิทธิภาพสูงสุดครับ
+            <div class="profile-detail-card" style="border-top-color: var(--mustard-beige);">
+                <h3 style="color: var(--mustard-beige); margin-bottom: 20px; font-weight: 700;">💡 แนวคิดในการทำงาน</h3>
+                <p style="line-height: 1.8; font-size: 0.95rem;">
+                    "ความเรียบง่ายคือความประณีตขั้นสูงสุด" ผมเชื่อมั่นในการสร้างสรรค์สิ่งต่าง ๆ ให้เรียบง่าย สะอาดตา คุมโทนธรรมชาติคลาสสิก แต่แฝงไปด้วยโครงสร้างที่คิดมาอย่างละเอียด เพื่อให้ตอบโจทย์การใช้งานสูงสุดครับ
                 </p>
             </div>
         </div>
