@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ตกแต่งเพิ่มเติมเฉพาะส่วนเนื้อหาประวัติส่วนตัว */
+        /* สไตล์เฉพาะตารางข้อมูลในหน้าเกี่ยวกับฉัน */
         .personal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            max-width: 800px;
+            margin-top: 30px;
         }
 
         .profile-detail-card {
@@ -23,9 +23,7 @@
             padding: 30px;
             box-shadow: 0 4px 20px rgba(85, 124, 36, 0.02);
             border: 1px solid rgba(85, 124, 36, 0.05);
-            border-top: 4px solid var(--avocado-green); /* เส้นขอบบนสีเขียวอะโวคาโด */
-            opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            border-top: 4px solid var(--avocado-green);
         }
 
         .info-list {
@@ -61,11 +59,15 @@
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="profile-box">
-            <img src="images/me.jpg" alt="รูปโปรไฟล์" onerror="this.src='https://via.placeholder.com/230/557c24/ffffff?text=Nopanan'">
-        </div>
+    <input type="checkbox" id="menu-checkbox">
+    
+    <label for="menu-checkbox" class="menu-toggle-btn">
+        ☰
+    </label>
 
+    <label for="menu-checkbox" class="menu-overlay"></label>
+
+    <div class="sidebar-popup">
         <nav class="nav-menu">
             <a href="index.html">หน้าแรก</a>
             <a href="personal.html" class="active">ประวัติส่วนตัว</a>
@@ -75,19 +77,18 @@
         </nav>
     </div>
 
-    <div class="main-content">
-        <div class="welcome-section" style="margin-bottom: 25px;">
+    <div class="main-content-full">
+        <div class="welcome-section">
             <h1>ข้อมูลส่วนตัว</h1>
             <subtitle>Personal Information</subtitle>
             <p>
-                ส่วนนี้เป็นข้อมูลรายละเอียดส่วนตัว ประวัติ และประวัติโดยย่อของผมครับ เพื่อให้คุณได้ทำความรู้จักตัวตนและสิ่งที่ผมสนใจมากยิ่งขึ้น
+                ยินดีต้อนรับเข้าสู่หน้ารายละเอียดส่วนตัวของผมครับ ด้านล่างนี้คือข้อมูลเบื้องต้นเกี่ยวกับตัวตน วันเกิด และแนวคิดในการดำเนินชีวิตของผมครับ
             </p>
         </div>
 
         <div class="personal-grid">
-            
-            <div class="profile-detail-card" style="animation-delay: 0.4s;">
-                <h3 style="color: var(--avocado-green); margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;">👤 ประวัติส่วนตัว</h3>
+            <div class="profile-detail-card">
+                <h3 style="color: var(--avocado-green); margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;">👤 ข้อมูลพื้นฐาน</h3>
                 <ul class="info-list">
                     <li>
                         <span class="info-label">ชื่อ-นามสกุล</span>
@@ -116,13 +117,12 @@
                 </ul>
             </div>
 
-            <div class="profile-detail-card" style="animation-delay: 0.5s; border-top-color: var(--text-muted);">
+            <div class="profile-detail-card" style="border-top-color: var(--text-muted);">
                 <h3 style="color: var(--text-muted); margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;">💡 แนวคิดในการทำงาน</h3>
                 <p style="line-height: 1.8; color: var(--text-dark); font-size: 0.95rem;">
-                    "ความเรียบง่ายคือความประณีตขั้นสูงสุด" ผมเชื่อมั่นในการสร้างสรรค์สิ่งต่าง ๆ ให้เรียบง่าย สะอาดตา คุมโทนธรรมชาติมินิมอล แต่แฝงไปด้วยโครงสร้างที่คิดมาอย่างละเอียด เพื่อให้ตอบโจทย์การใช้งานและสร้างประสบการณ์ที่ดีที่สุดครับ
+                    "ความเรียบง่ายคือความประณีตขั้นสูงสุด" ผมมุ่งมั่นที่จะนำสไตล์มินิมอลธรรมชาติมาผสานเข้ากับโครงสร้างการออกแบบที่ชัดเจน เพื่อสร้างสรรค์ผลงานที่ทั้งดูดีและตอบโจทย์การใช้งานอย่างมีประสิทธิภาพสูงสุดครับ
                 </p>
             </div>
-
         </div>
     </div>
 
