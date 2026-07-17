@@ -1,15 +1,48 @@
 /* ==========================================
-   📱 5. POP-UP SIDEBAR STYLES (สำหรับหน้าอื่นๆ ที่เมนูยุบ)
+   🎨 1. VARIABLE & GLOBAL STYLES (โทนสีใหม่ตามรูป)
+   ========================================== */
+:root {
+    --bg-cream: #F4EFE3;       /* สีครีมพื้นหลังหลัก (Warm Cream) */
+    --sidebar-cream: #EFE9D9;  /* สีครีมเข้มขึ้นเล็กน้อยสำหรับเมนูป๊อปอัป */
+    --mustard-beige: #C2A672;  /* สีเบจมัสตาร์ดจากรูป */
+    --forest-green: #4A5B3D;   /* สีเขียวป่าคลาสสิกจากรูป */
+    --wood-brown: #7B4B2A;     /* สีน้ำตาลไม้เข้มจากรูป */
+    --text-dark: #3A3227;      /* สีตัวหนังสือเข้มโทนน้ำตาล */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Sarabun', sans-serif;
+}
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/* ==========================================
+   🎬 2. KEYFRAMES ANIMATIONS
+   ========================================== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   🎛️ 3. POP-UP MENU STYLES (ใช้เหมือนกันทุกหน้า)
    ========================================== */
 
-/* ปุ่มกลมสำหรับกดเปิดเมนู (Toggle Button) */
+/* ปุ่มกลมกดเปิดเมนู */
 .menu-toggle-btn {
     position: fixed;
     top: 20px;
     left: 20px;
     width: 50px;
     height: 50px;
-    background-color: var(--avocado-green);
+    background-color: var(--forest-green);
     color: #ffffff;
     border-radius: 50%;
     display: flex;
@@ -17,44 +50,43 @@
     justify-content: center;
     font-size: 1.3rem;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(85, 124, 36, 0.3);
+    box-shadow: 0 4px 15px rgba(74, 91, 61, 0.3);
     z-index: 999;
     transition: all 0.3s ease;
 }
 
 .menu-toggle-btn:hover {
     transform: scale(1.1);
-    background-color: var(--text-dark);
+    background-color: var(--wood-brown);
 }
 
-/* ซ่อน Checkbox ที่ใช้ควบคุมการเปิด-ปิด */
+/* ซ่อน Checkbox ควบคุมระบบป๊อปอัป */
 #menu-checkbox {
     display: none;
 }
 
-/* ปรับปรุงโครงสร้าง Sidebar ให้กลายเป็น Pop-up สไลด์เข้า-ออก */
+/* แถบเมนูป๊อปอัปสไลด์ซ้าย (ไม่มีรูปโปรไฟล์แล้ว) */
 .sidebar-popup {
     position: fixed;
     top: 0;
-    left: -280px; /* ซ่อนไว้ทางซ้ายนอกจอ */
+    left: -280px; /* ซ่อนไว้ */
     width: 280px;
     height: 100vh;
     background-color: var(--sidebar-cream);
-    padding: 80px 25px 40px 25px; /* เว้นพื้นที่ด้านบนให้ปุ่มปิด */
-    border-right: 1px solid rgba(85, 124, 36, 0.1);
+    padding: 90px 25px 40px 25px;
+    border-right: 1px solid rgba(123, 75, 42, 0.1);
     z-index: 998;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: none;
 }
 
-/* แผ่นฉากหลังโปร่งแสงเวลากดเปิดเมนู (Overlay Background) */
+/* ฉากหลังโปร่งแสง */
 .menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(44, 54, 25, 0.4);
+    background: rgba(58, 50, 39, 0.4);
     backdrop-filter: blur(2px);
     z-index: 997;
     opacity: 0;
@@ -62,21 +94,44 @@
     transition: opacity 0.4s ease;
 }
 
-/* ⚡ คำสั่งเงื่อนไข: เมื่อมีการกดติ๊กถูก (เปิดป๊อปอัป) */
+/* สั่งสไลด์เปิดเมนู */
 #menu-checkbox:checked ~ .sidebar-popup {
-    left: 0; /* สไลด์เมนูออกมา */
-    box-shadow: 5px 0 30px rgba(44, 54, 25, 0.15);
+    left: 0;
+    box-shadow: 5px 0 30px rgba(58, 50, 39, 0.15);
 }
 
 #menu-checkbox:checked ~ .menu-overlay {
     opacity: 1;
-    pointer-events: auto; /* คลิกฉากหลังเพื่อปิดได้ */
+    pointer-events: auto;
 }
 
-/* ปรับเนื้อหาหลักให้ขยายเต็มหน้าจอ (ไม่ต้องเว้นพื้นที่ด้านซ้ายแล้ว) */
+/* 🧭 ลิงก์เมนูภายในป๊อปอัป */
+.nav-menu a {
+    display: block;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    border-left: 4px solid transparent;
+}
+
+.nav-menu a.active, .nav-menu a:hover {
+    background-color: var(--forest-green);
+    color: #ffffff;
+    border-left: 4px solid var(--mustard-beige);
+    padding-left: 22px;
+}
+
+/* ==========================================
+   📄 4. MAIN CONTENT CONTAINER (ขยายกว้างเต็มหน้าจอ)
+   ========================================== */
 .main-content-full {
-    padding: 80px 30px 40px 30px;
-    max-width: 1000px;
+    padding: 90px 25px 40px 25px;
+    max-width: 900px;
     margin: 0 auto;
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -84,6 +139,37 @@
 
 @media (min-width: 768px) {
     .main-content-full {
-        padding: 90px 60px 60px 60px;
+        padding: 100px 50px 60px 50px;
     }
+}
+
+/* การ์ดหัวข้อหลัก */
+.welcome-section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(74, 91, 61, 0.03);
+    border: 1px solid rgba(74, 91, 61, 0.05);
+    margin-bottom: 30px;
+}
+
+.welcome-section h1 {
+    color: var(--forest-green);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.welcome-section subtitle {
+    display: block;
+    color: var(--mustard-beige);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
