@@ -1,13 +1,14 @@
 /* ==========================================
-   🎨 1. VARIABLE & GLOBAL STYLES (โทนสีใหม่ตามรูป)
+   🎨 1. VARIABLE & GLOBAL STYLES (โทนสี Earth Tone ยุโรปคลาสสิก)
    ========================================== */
 :root {
-    --bg-cream: #F4EFE3;       /* สีครีมพื้นหลังหลัก (Warm Cream) */
-    --sidebar-cream: #EFE9D9;  /* สีครีมเข้มขึ้นเล็กน้อยสำหรับเมนูป๊อปอัป */
-    --mustard-beige: #C2A672;  /* สีเบจมัสตาร์ดจากรูป */
-    --forest-green: #4A5B3D;   /* สีเขียวป่าคลาสสิกจากรูป */
-    --wood-brown: #7B4B2A;     /* สีน้ำตาลไม้เข้มจากรูป */
+    --bg-cream: #F4EFE3;       /* สีครีมพื้นหลังหลัก */
+    --sidebar-cream: #EFE9D9;  /* สีครีมเข้มสำหรับเมนูป๊อปอัป */
+    --mustard-beige: #C2A672;  /* สีเบจมัสตาร์ด */
+    --forest-green: #4A5B3D;   /* สีเขียวป่าคลาสสิก */
+    --wood-brown: #7B4B2A;     /* สีน้ำตาลไม้เข้ม */
     --text-dark: #3A3227;      /* สีตัวหนังสือเข้มโทนน้ำตาล */
+    --card-bg: #ffffff;
 }
 
 * {
@@ -19,6 +20,10 @@
 
 body {
     background-color: var(--bg-cream);
+    /* 🌟 ลูกเล่นที่ 1: เพิ่มลวดลายจุดจางๆ สไตล์กระดาษโน้ตยุโรปคลาสสิก ลดความโล่งของพื้นหลัง */
+    background-image: radial-gradient(var(--mustard-beige) 0.7px, transparent 0.7px), radial-gradient(var(--mustard-beige) 0.7px, #F4EFE3 0.7px);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
     color: var(--text-dark);
     min-height: 100vh;
 }
@@ -27,77 +32,73 @@ body {
    🎬 2. KEYFRAMES ANIMATIONS
    ========================================== */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(25px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================
-   🎛️ 3. POP-UP MENU STYLES (ใช้เหมือนกันทุกหน้า)
+   🎛️ 3. POP-UP MENU STYLES
    ========================================== */
-
-/* ปุ่มกลมกดเปิดเมนู */
 .menu-toggle-btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
+    top: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
     background-color: var(--forest-green);
     color: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(74, 91, 61, 0.3);
+    /* 🌟 ลูกเล่นที่ 2: ปรับเงาให้ฟุ้งนุ่มนวลมีมิติขึ้น */
+    box-shadow: 0 6px 20px rgba(74, 91, 61, 0.35);
     z-index: 999;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 2px solid #ffffff;
 }
 
 .menu-toggle-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(90deg);
     background-color: var(--wood-brown);
 }
 
-/* ซ่อน Checkbox ควบคุมระบบป๊อปอัป */
 #menu-checkbox {
     display: none;
 }
 
-/* แถบเมนูป๊อปอัปสไลด์ซ้าย (ไม่มีรูปโปรไฟล์แล้ว) */
 .sidebar-popup {
     position: fixed;
     top: 0;
-    left: -280px; /* ซ่อนไว้ */
+    left: -300px;
     width: 280px;
     height: 100vh;
     background-color: var(--sidebar-cream);
-    padding: 90px 25px 40px 25px;
-    border-right: 1px solid rgba(123, 75, 42, 0.1);
+    padding: 100px 25px 40px 25px;
+    border-right: 3px double var(--mustard-beige); /* เส้นขอบคู่สไตล์วินเทจ */
     z-index: 998;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ฉากหลังโปร่งแสง */
 .menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(58, 50, 39, 0.4);
-    backdrop-filter: blur(2px);
+    background: rgba(58, 50, 39, 0.5);
+    backdrop-filter: blur(3px);
     z-index: 997;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
 }
 
-/* สั่งสไลด์เปิดเมนู */
 #menu-checkbox:checked ~ .sidebar-popup {
     left: 0;
-    box-shadow: 5px 0 30px rgba(58, 50, 39, 0.15);
+    box-shadow: 8px 0 35px rgba(58, 50, 39, 0.2);
 }
 
 #menu-checkbox:checked ~ .menu-overlay {
@@ -105,17 +106,16 @@ body {
     pointer-events: auto;
 }
 
-/* 🧭 ลิงก์เมนูภายในป๊อปอัป */
 .nav-menu a {
     display: block;
     color: var(--text-dark);
     text-decoration: none;
     padding: 14px 18px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     font-size: 1.05rem;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: 8px;
-    transition: all 0.25s ease;
+    transition: all 0.3s ease;
     border-left: 4px solid transparent;
 }
 
@@ -123,53 +123,72 @@ body {
     background-color: var(--forest-green);
     color: #ffffff;
     border-left: 4px solid var(--mustard-beige);
-    padding-left: 22px;
+    padding-left: 25px;
+    box-shadow: 0 4px 12px rgba(74, 91, 61, 0.15);
 }
 
 /* ==========================================
-   📄 4. MAIN CONTENT CONTAINER (ขยายกว้างเต็มหน้าจอ)
+   📄 4. MAIN CONTENT CONTAINER & CARDS
    ========================================== */
 .main-content-full {
-    padding: 90px 25px 40px 25px;
-    max-width: 900px;
+    padding: 110px 25px 60px 25px;
+    max-width: 950px;
     margin: 0 auto;
     opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (min-width: 768px) {
     .main-content-full {
-        padding: 100px 50px 60px 50px;
+        padding: 120px 50px 80px 50px;
     }
 }
 
-/* การ์ดหัวข้อหลัก */
+/* การ์ดหัวข้อหลัก (เพิ่มลูกเล่นกรอบสองชั้นและดีเทลมุม) */
 .welcome-section {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 16px;
-    padding: 35px;
-    box-shadow: 0 10px 30px rgba(74, 91, 61, 0.03);
-    border: 1px solid rgba(74, 91, 61, 0.05);
-    margin-bottom: 30px;
+    padding: 40px;
+    box-shadow: 0 12px 40px rgba(58, 50, 39, 0.06);
+    /* 🌟 ลูกเล่นที่ 3: เส้นขอบคู่สไตล์ยุโรปคลาสสิกช่วยให้การ์ดดูเต็ม ไม่โล่งตา */
+    border: 4px double rgba(74, 91, 61, 0.3);
+    position: relative;
+    margin-bottom: 35px;
+}
+
+/* เพิ่มจุดวงกลมตกแต่งที่มุมการ์ด */
+.welcome-section::before {
+    content: "• •";
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: var(--mustard-beige);
+    font-size: 1.2rem;
+    letter-spacing: 3px;
 }
 
 .welcome-section h1 {
     color: var(--forest-green);
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 700;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
 }
 
 .welcome-section subtitle {
     display: block;
     color: var(--mustard-beige);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    border-bottom: 1px solid rgba(194, 166, 114, 0.4);
+    padding-bottom: 8px;
 }
 
 .welcome-section p {
     font-size: 1.05rem;
-    line-height: 1.8;
+    line-height: 1.9;
+    color: var(--text-dark);
 }
