@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Nopanan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(74, 91, 61, 0.02);
+            border: 1px solid rgba(74, 91, 61, 0.05);
+            border-top: 4px solid var(--forest-green);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(74, 91, 61, 0.08);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .contact-card h3 {
+            color: var(--forest-green);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            word-break: break-all;
+        }
+
+        .contact-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--wood-brown);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--mustard-beige);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🎛️ ระบบป๊อปอัปเมนู -->
+    <input type="checkbox" id="menu-checkbox">
+    <label for="menu-checkbox" class="menu-toggle-btn">☰</label>
+    <label for="menu-checkbox" class="menu-overlay"></label>
+
+    <div class="sidebar-popup">
+        <nav class="nav-menu">
+            <a href="index.html">หน้าแรก</a>
+            <a href="about.html">ประวัติส่วนตัว</a>
+            <a href="projects.html">ผลงาน</a>
+            <a href="hobbies.html">งานอดิเรก</a>
+            <a href="contact.html" class="active">ติดต่อ</a>
+        </nav>
+    </div>
+
+    <!-- ⚪ เนื้อหาหน้าติดต่อแบบขยายเต็มจอ -->
+    <div class="main-content-full">
+        <div class="welcome-section">
+            <h1>ช่องทางการติดต่อ</h1>
+            <subtitle>Get In Touch</subtitle>
+            <p>
+                คุณสามารถติดต่อหรือติดตามผมได้ผ่านช่องทางด้านล่างนี้เลยครับ ยินดีที่ได้ทำความรู้จักครับ
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            
+            <!-- Facebook -->
+            <div class="contact-card">
+                <span class="contact-icon">👤</span>
+                <h3>Facebook</h3>
+                <p>Nopanantijan@gmail.com</p>
+                <a href="https://www.facebook.com" target="_blank" class="contact-link">เปิด Facebook →</a>
+            </div>
+
+            <!-- Instagram -->
+            <div class="contact-card" style="border-top-color: var(--mustard-beige);">
+                <span class="contact-icon">📸</span>
+                <h3 style="color: var(--mustard-beige);">Instagram</h3>
+                <p>mariaana_np</p>
+                <a href="https://www.instagram.com/mariaana_np" target="_blank" class="contact-link">เปิด Instagram →</a>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-card" style="border-top-color: var(--wood-brown);">
+                <span class="contact-icon">📞</span>
+                <h3 style="color: var(--wood-brown);">Phone</h3>
+                <p>080-175-3747</p>
+                <a href="tel:0801753747" class="contact-link">โทรติดต่อ →</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
 
