@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Nopanan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* จัดกริดสำหรับกรอบผลงาน 2 ชิ้น */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* กรอบรูปผลงานมินิมอล */
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(74, 91, 61, 0.02);
+            border: 1px solid rgba(74, 91, 61, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(74, 91, 61, 0.08);
+        }
+
+        /* พื้นที่แสดงรูปภาพผลงาน */
+        .project-img-holder {
+            width: 100%;
+            height: 220px;
+            background-color: var(--sidebar-cream);
+            overflow: hidden;
+            border-bottom: 3px solid var(--forest-green);
+        }
+
+        .project-img-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* โซนแสดงเฉพาะหัวข้อผลงาน */
+        .project-title-box {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-title-box h3 {
+            color: var(--forest-green);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🎛️ ระบบป๊อปอัปเมนู -->
+    <input type="checkbox" id="menu-checkbox">
+    <label for="menu-checkbox" class="menu-toggle-btn">☰</label>
+    <label for="menu-checkbox" class="menu-overlay"></label>
+
+    <div class="sidebar-popup">
+        <nav class="nav-menu">
+            <a href="index.html">หน้าแรก</a>
+            <a href="about.html">ประวัติส่วนตัว</a>
+            <a href="projects.html" class="active">ผลงาน</a>
+            <a href="hobbies.html">งานอดิเรก</a>
+            <a href="contact.html">ติดต่อ</a>
+        </nav>
+    </div>
+
+    <!-- ⚪ เนื้อหาหน้าผลงานแบบขยายเต็มจอ -->
+    <div class="main-content-full">
+        <div class="welcome-section">
+            <h1>คลังผลงาน</h1>
+            <subtitle>My Creative Projects</subtitle>
+            <p>รวบรวมชิ้นงาน โปรเจกต์ และสิ่งที่ผมได้ลงมือสร้างสรรค์ขึ้นมาครับ</p>
+        </div>
+
+        <!-- โซนกรอบรูปผลงาน 2 ชิ้น -->
+        <div class="project-grid">
+            
+            <!-- ผลงานชิ้นที่ 1 -->
+            <div class="project-card">
+                <div class="project-img-holder">
+                    <!-- คุณพิงนำชื่อไฟล์รูปภาพมาใส่ในช่อง src ได้เลยครับ -->
+                    <img src="images/project1.jpg" alt="ผลงานชิ้นที่ 1" onerror="this.src='https://via.placeholder.com/400x250/4A5B3D/ffffff?text=Project+1'">
+                </div>
+                <div class="project-title-box">
+                    <h3>ชื่อหัวข้อผลงานชิ้นที่ 1</h3>
+                </div>
+            </div>
+
+            <!-- ผลงานชิ้นที่ 2 -->
+            <div class="project-card">
+                <div class="project-img-holder" style="border-bottom-color: var(--mustard-beige);">
+                    <img src="images/project2.jpg" alt="ผลงานชิ้นที่ 2" onerror="this.src='https://via.placeholder.com/400x250/C2A672/ffffff?text=Project+2'">
+                </div>
+                <div class="project-title-box">
+                    <h3 style="color: var(--mustard-beige);">ชื่อหัวข้อผลงานชิ้นที่ 2</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
 
